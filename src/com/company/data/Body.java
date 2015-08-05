@@ -8,7 +8,11 @@ public class Body extends Code {
     @Override
     public String eval() {
         String saida = "";
-        saida = "main(){\n"+ this.codeContext + "\n}";
+        //Includes
+        saida += "/*includes*/\n#include \"motor.c\" \n#include \"lineSensor.c\" \n#include \"generix.c\" \n#include \"claw.c\"\n";
+        //Setup
+        saida += "/*Setup*/\nsetup(){\nmotorSetup();\nclawSetup();\nsensorSetup();\n}\n\n";
+        saida += "/*Loop*/\nloop(){\n"+ this.codeContext + "\n}";
         return saida;
     }
 

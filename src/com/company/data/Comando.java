@@ -13,7 +13,7 @@ public class Comando extends Code{
 
     @Override
     public String eval() {
-        return this.codeContext+"("+this.param+");";
+        return this.codeContext+"("+this.param+");\n";
     }
 
     public void setParam(String param){
@@ -22,7 +22,7 @@ public class Comando extends Code{
 
     public static Code mkComando(String name){
         Comando c = new Comando();
-        c.inside(name);
+        c.inside(name.toLowerCase());
         return c;
     }
 
@@ -31,10 +31,10 @@ public class Comando extends Code{
 
        switch (type){
            case 0:
-               c.inside("ANDAR_FRENTE_SEG");
+               c.inside("andar_frente_seg");
                break;
            case 1:
-               c.inside("ABRIR_GARRA_ANG");
+               c.inside("abrir_garra_ang");
                break;
        }
         c.setParam(param);

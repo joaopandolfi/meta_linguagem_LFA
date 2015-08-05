@@ -14,7 +14,6 @@ logica returns [Code result]
        : cd=condicao {$result = $cd.result;}
        | l=laco      {$result = $l.result;}
        | co=comando  {$result = $co.result;}
-       //| BREAK (t0 = logica {$result = Logica.concatLogica($result,$t0.result);})*
        | t1=logica t2=logica {$result = Logica.concatLogica($t1.result,$t2.result);}
        ;
 
@@ -49,6 +48,7 @@ comando returns [Code result]
         : 'VIRAR_PARA_DIREITA'                              {$result = Comando.mkComando("VIRAR_PARA_DIREITA");}
         | 'VIRAR_PARA_ESQUERDA'                             {$result = Comando.mkComando("VIRAR_PARA_ESQUERDA");}
         | 'ANDAR_PARA_FRENTE'                               {$result = Comando.mkComando("ANDAR_PARA_FRENTE");}
+        | 'ANDAR_PARA_TRAS'                                 {$result = Comando.mkComando("ANDAR_PARA_TRAS");}
         | 'PARAR'                                           {$result = Comando.mkComando("PARAR");}
         | 'ANDAR_PARA_FRENTE_POR_(' NUMERO ')_SEGUNDOS'     {$result = Comando.mkComandoParam($NUMERO.text,0);}
         | 'ABRIR_GARRA'                                     {$result = Comando.mkComando("ABRIR_GARRA");}

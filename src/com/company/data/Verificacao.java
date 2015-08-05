@@ -17,7 +17,7 @@ public class Verificacao extends Code {
 
     public static Code mkVerif(String name){
         Verificacao v = new Verificacao();
-        v.inside(name);
+        v.inside(name.toLowerCase());
         return v;
     }
 }
