@@ -3,3 +3,8 @@ Meta linguagem desenvolvida para facilitar crianças a programar em Arduino. Fei
 
 #Saida
 É gerado um arquivo ino.ino na pasta /ino dentro do projeto.
+
+#Executar pelo terminal
+navegar ate a pasta pelo cmd
+executar: run.bat arquivo
+EX: run.bat codigo.txt
