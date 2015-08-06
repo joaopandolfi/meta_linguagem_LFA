@@ -9,10 +9,12 @@ public class Body extends Code {
     public String eval() {
         String saida = "";
         //Includes
-        saida += "/*includes*/\n#include \"motor.c\" \n#include \"lineSensor.c\" \n#include \"generix.c\" \n#include \"claw.c\"\n";
+        saida += "/*includes*/#include <Servo.h>\n\n#include \"metaLing.h\" \n";
+        //Variavel
+        saida+= "MetaLing m;\n";
         //Setup
-        saida += "/*Setup*/\nsetup(){\nmotorSetup();\nclawSetup();\nsensorSetup();\n}\n\n";
-        saida += "/*Loop*/\nloop(){\n"+ this.codeContext + "\n}";
+        saida += "/*Setup*/\nvoid setup(){\nm.motorSetup();\nm.clawSetup();\nm.sensorSetup();\n}\n\n";
+        saida += "/*Loop*/\nvoid loop(){\n"+ this.codeContext + "\n}";
         return saida;
     }
 

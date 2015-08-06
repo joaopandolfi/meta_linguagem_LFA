@@ -4,14 +4,19 @@ package com.company.data;
  * Created by joãocarlos on 04/08/2015.
  */
 public class Verificacao extends Code {
+    static boolean not = false;
+
     @Override
     public String eval() {
-        return this.codeContext+"()";
+        if(not)
+            return "!m."+this.codeContext+"()";
+        return "m."+this.codeContext+"()";
     }
 
     public static Code mkNotVerif(Code verif){
         Verificacao v = new Verificacao();
-        v.inside("!"+verif.context());
+        not = true;
+        v.inside(verif.context());
         return v;
     }
 

@@ -1,30 +1,22 @@
-/*includes*/
-#include "motor.c" 
-#include "lineSensor.c" 
-#include "generix.c" 
-#include "claw.c"
+/*includes*/#include <Servo.h>
+
+#include "metaLing.h" 
+MetaLing m;
 /*Setup*/
-setup(){
-motorSetup();
-clawSetup();
-sensorSetup();
+void setup(){
+m.motorSetup();
+m.clawSetup();
+m.sensorSetup();
 }
 
 /*Loop*/
-loop(){
-if(!existe_objeto_a_esquerda()){
-parar();
-}
-if(!falso()){
-parar();
-}
-if(verdadeiro()){
-}
-while(verdadeiro()){
-parar();
+void loop(){
+while(!m.verdadeiro()){
+m.parar();
 
 }
 for(int i = 0; i < 10; i++){
+m.abrir_garra_ang(15);
 
 }
 

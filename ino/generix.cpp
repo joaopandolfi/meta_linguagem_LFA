@@ -9,21 +9,20 @@
 
 //generic operations
 
-
 // =================== Constant Functions ===================
 
 //check objetive Done
-int return chegou_no_objetivo(){
+int Generix::chegou_no_objetivo(){
 	//you never reach you objetives MUAHAHAHAHA
 	return 0;
 }
 
 //Return true
-int verdadeiro(){
+int Generix::verdadeiro(){
 	return 1;
 }
 
 //Return false
-int falso(){
+int Generix::falso(){
 	return 0;
 }

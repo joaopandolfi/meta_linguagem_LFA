@@ -13,7 +13,7 @@ public class Comando extends Code{
 
     @Override
     public String eval() {
-        return this.codeContext+"("+this.param+");\n";
+        return "m."+this.codeContext+"("+this.param+");\n";
     }
 
     public void setParam(String param){

@@ -10,28 +10,23 @@
 #include "motor.h"
 
 //constants
-const int PIN_MOTOR_ESQUERDA = 3;
-const int PIN_MOTOR_DIREITA = 4;
+#define PIN_MOTOR_ESQUERDA  3
+#define PIN_MOTOR_DIREITA  4
 
-const int STOP_MOTOR = 90;
-const int L_BACK_MOTOR = 0;
-const int L_FRONT_MOTOR = 180;
-const int R_BACK_MOTOR = 180;
-const int R_FRONT_MOTOR = 90;
+#define STOP_MOTOR 90
+#define L_BACK_MOTOR 0
+#define L_FRONT_MOTOR 180
+#define R_BACK_MOTOR 180
+#define R_FRONT_MOTOR 90
 
-const int IN_MOVIMENT_M = 1;
-const int STOPED_M = 0;
-const int I_DONT_KNOW_M = 2;
+#define IN_MOVIMENT_M  1
+#define STOPED_M  0
+#define I_DONT_KNOW_M 2
 
 //Variables
-Servo motorEsquerda;
-Servo motorDireita;
-
-int L_stateMoviment;
-int R_stateMoviment;
 
 //setup
-void motorSetup(){
+void Motor::motorSetup(){
 	//set pin motors
 	motorEsquerda.attach(PIN_MOTOR_ESQUERDA);
 	motorDireita.attach(PIN_MOTOR_DIREITA);
@@ -46,7 +41,7 @@ void motorSetup(){
 // =================== ControlFunctions ===================
 
 //Define state moviment motors
-void setMoviment(int left, int rigth){
+void Motor::setMoviment(int left, int rigth){
 	if(left != I_DONT_KNOW_M)
 		L_stateMoviment = left;
 
@@ -55,14 +50,14 @@ void setMoviment(int left, int rigth){
 }
 
 //Return true if robot is stoped
-int esta_parado(){
+int Motor::esta_parado(){
 	if((L_stateMoviment + R_stateMoviment) > 0)
 		return 0;
 	return 1;
 }
 
 //Return false if robot is in moviment
-int esta_andando(){
+int Motor::esta_andando(){
 	return L_stateMoviment + R_stateMoviment;
 }
 
@@ -72,24 +67,24 @@ int esta_andando(){
 
 
 //Turn on Motors
-void ligar_motor_direita(){
+void Motor::ligar_motor_direita(){
 	motorDireita.write(R_FRONT_MOTOR);
 	setMoviment(I_DONT_KNOW_M,IN_MOVIMENT_M);
 }
 
-void ligar_motor_esquerda(){
+void Motor::ligar_motor_esquerda(){
 	motorEsquerda.write(L_FRONT_MOTOR);
 	setMoviment(IN_MOVIMENT_M, I_DONT_KNOW_M);
 }
 
 //Turn of Motors
 
-void desligar_motor_esquerda(){
+void Motor::desligar_motor_esquerda(){
 	motorEsquerda.write(STOP_MOTOR);
 	setMoviment(STOPED_M,I_DONT_KNOW_M);
 }
 
-void desligar_motor_direita(){
+void Motor::desligar_motor_direita(){
 	motorDireita.write(STOP_MOTOR);
 	setMoviment(I_DONT_KNOW_M,STOP_MOTOR);
 }
@@ -97,35 +92,35 @@ void desligar_motor_direita(){
 // #=============== Simple Moviment ================
 
 //turn off ours 2 motors
-void parar(){
+void Motor::parar(){
 	motorDireita.write(STOP_MOTOR);
 	motorEsquerda.write(STOP_MOTOR);
 	setMoviment(STOPED_M,STOPED_M);
 }
 
 //move robot to front
-void andar_para_frente(){
+void Motor::andar_para_frente(){
 	motorDireita.write(L_FRONT_MOTOR);
 	motorEsquerda.write(R_FRONT_MOTOR);
 	setMoviment(IN_MOVIMENT_M,IN_MOVIMENT_M);
 }
 
 //move robot to back
-void andar_para_tras(){
+void Motor::andar_para_tras(){
 	motorDireita.write(L_BACK_MOTOR);
 	motorDireita.write(R_BACK_MOTOR);
 	setMoviment(IN_MOVIMENT_M,IN_MOVIMENT_M);
 }
 
 //turn robot to rigth
-void virar_para_direita(){
-	motorDireta.write(L_FRONT_MOTOR);
+void Motor::virar_para_direita(){
+	motorDireita.write(L_FRONT_MOTOR);
 	motorEsquerda.write(R_BACK_MOTOR);
 	setMoviment(IN_MOVIMENT_M,IN_MOVIMENT_M);
 }
 
 //turn robot to left
-void virar_para_esquerda(){
+void Motor::virar_para_esquerda(){
 	motorEsquerda.write(L_BACK_MOTOR);
 	motorDireita.write(R_FRONT_MOTOR);
 	setMoviment(IN_MOVIMENT_M,IN_MOVIMENT_M);
@@ -133,7 +128,7 @@ void virar_para_esquerda(){
 
 // #=============== Sofisticated Moviment ================
 
-void andar_frente_seg(int seconds){
+void Motor::andar_frente_seg(int seconds){
 	//Convert seconds to MiliSeconds
 	seconds = seconds * 1000;
 
