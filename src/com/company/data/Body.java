@@ -9,7 +9,7 @@ public class Body extends Code {
     public String eval() {
         String saida = "";
         //Includes
-        saida += "/*includes*/#include <Servo.h>\n\n#include \"metaLing.h\" \n";
+        saida += "/*includes*/\n#include <Servo.h>\n#include \"metaLing.h\" \n";
         //Variavel
         saida+= "MetaLing m;\n";
         //Setup
