@@ -82,6 +82,26 @@ public interface myGrammarListener extends ParseTreeListener {
 	 */
 	void exitComando(myGrammarParser.ComandoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link myGrammarParser#operadorE}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperadorE(myGrammarParser.OperadorEContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link myGrammarParser#operadorE}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperadorE(myGrammarParser.OperadorEContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link myGrammarParser#operadorOU}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperadorOU(myGrammarParser.OperadorOUContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link myGrammarParser#operadorOU}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperadorOU(myGrammarParser.OperadorOUContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link myGrammarParser#negacao}.
 	 * @param ctx the parse tree
 	 */

@@ -42,6 +42,8 @@ verificacao returns [Code result]
             | 'VERDADEIRO'                          {$result = Verificacao.mkVerif("VERDADEIRO");}
             | 'FALSO'                               {$result = Verificacao.mkVerif("FALSO");}
             | negacao v = verificacao               {$result = Verificacao.mkNotVerif($v.result);}
+            | v1 = verificacao operadorE v2 = verificacao   {$result = Verificacao.mkAndVerif($v1.result,$v2.result);}
+            | v1 = verificacao operadorOU v2 = verificacao  {$result = Verificacao.mkOrVerif($v1.result,$v2.result);}
             ;
 
 comando returns [Code result]
@@ -58,6 +60,15 @@ comando returns [Code result]
         | 'LIGAR_MOTOR_ESQUERDA'                            {$result = Comando.mkComando("LIGAR_MOTOR_ESQUERDA");}
         | 'DESLIGAR_MOTOR_ESQUERDA'                         {$result = Comando.mkComando("DESLIGAR_MOTOR_ESQUERDA");}
         | 'DESLIGAR_MOTOR_DIREITA'                          {$result = Comando.mkComando("DESLIGAR_MOTOR_DIREITA");}
+        ;
+
+operadorE : '_E_'
+        | 'E'
+        | '_E_TAMBEM_'
+        ;
+
+operadorOU : '_OU_'
+        | 'OU'
         ;
 
 negacao : 'NAO_'
