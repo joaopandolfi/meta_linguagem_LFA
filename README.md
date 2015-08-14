@@ -1,6 +1,6 @@
 # Meta Linguagem
 Meta linguagem desenvolvida para facilitar crianças a programar em Arduino. 
- > Feita usando a ferramta ANTLR
+ > Feita usando a ferramenta ANTLR
 
 Esta linguagem tem como intuito abstrair o conceito de programação.
 
@@ -9,7 +9,7 @@ Esta linguagem tem como intuito abstrair o conceito de programação.
 Os comandos são em português e tem como finalidade serem intuitivos.
 
 EX:
-`
+```
 INICIAR
 	ENQUANTO_(NAO_CHEGOU_NO_OBJETIVO)_FOR_VERDADE:
 		SE_(NAO_EXISTE_NADA_A_FRENTE)_FOR_VERDADE:
@@ -26,7 +26,7 @@ INICIAR
 		FIM_DO_SENAO
 	FIM_DO_ENQUANTO
 FIM_DO_PROGRAMA
-`
+```
 
 #Saida
  > É gerado um arquivo ino.ino na pasta /ino dentro do projeto.
