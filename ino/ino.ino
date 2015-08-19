@@ -1,5 +1,5 @@
-/*includes*/#include <Servo.h>
-
+/*includes*/
+#include <Servo.h>
 #include "metaLing.h" 
 MetaLing m;
 /*Setup*/
@@ -11,12 +11,19 @@ m.sensorSetup();
 
 /*Loop*/
 void loop(){
-while(!m.verdadeiro()){
-m.parar();
-
+while(! m.chegou_no_objetivo()){
+if(! m.existe_objeto_a_frente()){
+m.andar_para_frente();
 }
-for(int i = 0; i < 10; i++){
-m.abrir_garra_ang(15);
+else{
+m.parar();
+if( m.existe_objeto_a_direita()){
+m.virar_para_esquerda();
+}
+else{
+m.virar_para_direita();
+}
+}
 
 }
 

@@ -2,4 +2,4 @@
 echo Copiando executavel
 copy libs\src\out\artifacts\TrabLFA_jar\TrabLFA.jar bin\run.jar
 echo executando
-java -jar bin/run.jar < %1
+java -jar bin\run.jar < %1

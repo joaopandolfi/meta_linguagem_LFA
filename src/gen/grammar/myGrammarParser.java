@@ -39,7 +39,7 @@ public class myGrammarParser extends Parser {
 	private static final String[] _LITERAL_NAMES = {
 		null, "'INICIAR'", "'FIM_DO_PROGRAMA'", "'SE_('", "')_FOR_VERDADE:'", 
 		"'FIM_DO_SE'", "')_FOR_FALSO:'", "'SENAO:'", "'FIM_DO_SENAO'", "'ENQUANTO_('", 
-		"'FIM_DO_ENQUANTO'", "'REPITA_('", "')_VEZES:'", "'FIM_DO_REPITA'", "'NAO_EXISTE_NADA_A_FRENTE'", 
+		"'FIM_DO_ENQUANTO'", "'REPITA_('", "')_VEZES:'", "'FIM_DO_REPITA'", "'EXISTE_OBJETO_A_FRENTE'", 
 		"'EXISTE_OBJETO_A_DIREITA'", "'EXISTE_OBJETO_A_ESQUERDA'", "'SENSOR_LINHA_DIREITA_RECONHECEU'", 
 		"'SENSOR_LINHA_MEIO_RECONHECEU'", "'SENSOR_LINHA_ESQUERDA_RECONHECEU'", 
 		"'AGARROU_OBJETO'", "'ESTA_PARADO'", "'ESTA_ANDANDO'", "'CHEGOU_NO_OBJETIVO'", 
@@ -561,7 +561,7 @@ public class myGrammarParser extends Parser {
 				{
 				setState(91);
 				match(T__13);
-				((VerificacaoContext)_localctx).result =  Verificacao.mkVerif("NAO_EXISTE_NADA_A_FRENTE");
+				((VerificacaoContext)_localctx).result =  Verificacao.mkVerif("EXISTE_OBJETO_A_FRENTE");
 				}
 				break;
 			case T__14:

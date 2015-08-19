@@ -29,7 +29,7 @@ laco returns [Code result]
      ;
 
 verificacao returns [Code result]
-            : 'NAO_EXISTE_NADA_A_FRENTE'            {$result = Verificacao.mkVerif("NAO_EXISTE_NADA_A_FRENTE");}
+            : 'EXISTE_OBJETO_A_FRENTE'            {$result = Verificacao.mkVerif("EXISTE_OBJETO_A_FRENTE");}
             | 'EXISTE_OBJETO_A_DIREITA'             {$result = Verificacao.mkVerif("EXISTE_OBJETO_A_DIREITA");}
             | 'EXISTE_OBJETO_A_ESQUERDA'            {$result = Verificacao.mkVerif("EXISTE_OBJETO_A_ESQUERDA");}
             | 'SENSOR_LINHA_DIREITA_RECONHECEU'     {$result = Verificacao.mkVerif("SENSOR_LINHA_DIREITA_RECONHECEU");}
