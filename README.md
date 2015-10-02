@@ -30,9 +30,13 @@ FIM_DO_PROGRAMA
 
 #Saida
  > É gerado um arquivo ino.ino na pasta /ino dentro do projeto.
+ 
  > Este arquivo é para ser aberto com a IDE do Arduino
+ 
  > Ao abrir, checar se a placa está devidamente conectada
+ 
  > Apertar o botão de "Play" na IDE do Arduino
+ 
  > Seja feliz.
 
 #No Windows
